@@ -5,7 +5,7 @@ import { db } from "./db";
 
 export const { auth, handlers, signOut, signIn } = NextAuth({
   adapter: PostgresAdapter(db),
-  providers: [GitHub],
+  providers: [GitHub()],
   trustHost: true,
   debug: true,
   callbacks: {
