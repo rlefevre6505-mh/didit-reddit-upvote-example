@@ -9,8 +9,8 @@ export const { auth, handlers, signOut, signIn } = NextAuth({
   trustHost: true,
   debug: true,
   callbacks: {
-    session: async ({ session, didit_user }) => {
-      session.didit_user.id = didit_user.id;
+    session: async ({ session, user }) => {
+      session.user.id = didit_user.id;
       return session;
     },
   },
