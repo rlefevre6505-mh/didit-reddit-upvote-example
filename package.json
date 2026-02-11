@@ -9,11 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth/pg-adapter": "^0.2.14",
+    "@auth/pg-adapter": "^0.2.15",
     "clsx": "^2.1.0",
     "next": "14.1.0",
     "next-auth": "^5.0.0-beta.5",
-    "pg": "^8.11.3",
+    "pg": "^8.18.0",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1"
@@ -24,5 +24,18 @@
     "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0"
-  }
+  },
+  "description": "Upvote is a Reddit-esque web application that allows users to create posts, upvote and downvote posts, and comment on posts in a multi-threaded, nested list.",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlefevre6505-mh/didit-reddit-upvote-example.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rlefevre6505-mh/didit-reddit-upvote-example/issues"
+  },
+  "homepage": "https://github.com/rlefevre6505-mh/didit-reddit-upvote-example#readme"
 }

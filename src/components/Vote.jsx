@@ -5,8 +5,8 @@ import { VoteButtons } from "./VoteButtons";
 
 async function getExistingVote(userId, postId) {
   const { rows: existingVotes } = await db.query(
-    "SELECT * FROM votes WHERE user_id = $1 AND post_id = $2 LIMIT 1",
-    [userId, postId]
+    "SELECT * FROM didit_votes WHERE user_id = $1 AND post_id = $2 LIMIT 1",
+    [userId, postId],
   );
 
   return existingVotes?.[0];
@@ -23,10 +23,12 @@ async function handleVote(userId, postId, newVote) {
   if (existingVote) {
     if (existingVote.vote === newVote) {
       // User is toggling their vote, so remove it
-      await db.query("DELETE FROM votes WHERE id = $1", [existingVote.id]);
+      await db.query("DELETE FROM didit_votes WHERE id = $1", [
+        existingVote.id,
+      ]);
     } else {
       // Update the existing vote
-      await db.query("UPDATE votes SET vote = $1 WHERE id = $2", [
+      await db.query("UPDATE didit_votes SET vote = $1 WHERE id = $2", [
         newVote,
         existingVote.id,
       ]);
@@ -34,8 +36,8 @@ async function handleVote(userId, postId, newVote) {
   } else {
     // Insert a new vote
     await db.query(
-      "INSERT INTO votes (user_id, post_id, vote, vote_type) VALUES ($1, $2, $3, 'post')",
-      [userId, postId, newVote]
+      "INSERT INTO didit_votes (user_id, post_id, vote, vote_type) VALUES ($1, $2, $3, 'post')",
+      [userId, postId, newVote],
     );
   }
 
