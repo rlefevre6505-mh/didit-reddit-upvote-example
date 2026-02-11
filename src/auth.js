@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
-import PostgresAdapter from "@auth/pg-adapter";
+// import PostgresAdapter from "@auth/pg-adapter";
+import PostgresAdapter from "./new.ts";
 import { db } from "./db";
 
 export const { auth, handlers, signOut, signIn } = NextAuth({
